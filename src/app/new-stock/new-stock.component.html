@@ -1,0 +1,63 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-6">
+        <div style="padding:15px;">
+            <form >
+              <div class="form-group">
+                <label >Stock Name:</label>
+                <input type="text" class="form-control" id="usr" name="name" [(ngModel)]="stock.name">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Stock Symbol:</label>
+                <input type="text" class="form-control" id="usr"  name="value" [(ngModel)]="stock.symbol">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Stock value:</label>
+                <input type="text" class="form-control" id="usr"  name="symbol" [(ngModel)]="stock.value">
+              </div>
+              <div class="form-group">
+                  <label for="pwd">Date:</label>
+                  <input type="date" class="form-control" id="usr"  name="symbol" [(ngModel)]="stock.date">
+                </div>
+              
+              <button type="button" class="btn btn-default" (click)="addStock()">Add Stock</button>
+            </form>
+          </div>
+    </div>
+    <div class="col-md-6">
+        <div>
+            <div [chart]="chart"></div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-6">
+        <table class="table table-striped" style="font-size:1em">
+            <thead>
+                <tr>
+                  <th>Stock Name</th>
+                  <th>Stock Symbol</th>
+                  <th>Stock Value</th>
+                  <th>Date</th>
+                </tr>
+             </thead>
+            <tbody>
+               <tr *ngFor = "let s of stockArray" (click) = "stockChart(stockArray, s.symbol)">
+                 <td>{{s.name}}</td>
+                 <td>{{s.symbol}}</td>
+                 <td>{{s.value}}</td>
+                 <td>{{s.date}}</td>
+               </tr>
+            </tbody>
+        </table>
+      
+
+    </div>
+    <div class="col-md-6">
+
+    </div>
+  </div>
+</div>
